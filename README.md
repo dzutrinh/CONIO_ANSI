@@ -109,6 +109,37 @@ int main() {
 }
 ```
 
+## Chương trình demo
+
+[demo.c](demo.c) minh họa toàn bộ 12 hàm của thư viện. Nhấn phím bất kỳ để chuyển sang phần tiếp theo.
+
+| Phần | Nội dung | Hàm minh họa |
+|---|---|---|
+| 1. Bảng màu | Hiển thị 16 màu chữ và 16 màu nền | `textcolor`, `textbackground`, `reset_color` |
+| 2. gotoxy | Vẽ khung, in chữ ở các góc, vẽ đường chéo | `clrscr`, `gotoxy` |
+| 3. Chữ chạy | Dòng chữ cuộn liên tục cho đến khi nhấn phím | `delay`, `hidecursor`, `kbhit`, `showcursor` |
+| 4. Trò chơi | Điều khiển `@` ăn ngôi sao `*` để ghi điểm | `kbhit`, `getch`, `delay` |
+
+`init_conio_ansi()` được gọi ở đầu và `close_conio_ansi()` ở cuối chương trình.
+
+**Điều khiển trò chơi:** `W` lên, `S` xuống, `A` trái, `D` phải, `Q` thoát.
+
+**Biên dịch và chạy:**
+
+Linux / macOS:
+
+```bash
+gcc demo.c -o demo && ./demo
+```
+
+Windows (MinGW):
+
+```bash
+gcc demo.c -o demo.exe && demo.exe
+```
+
+Demo cũng biên dịch được bằng `g++` hoặc MSVC (`cl demo.c`).
+
 ## Lưu ý
 
 - Phím mũi tên trả về mã khác nhau giữa Windows và Linux/macOS; nên dùng W/A/S/D để chương trình chạy giống nhau mọi nơi.
